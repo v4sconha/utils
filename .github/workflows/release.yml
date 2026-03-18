@@ -41,8 +41,7 @@ jobs:
         if: steps.tag_check.outputs.exists == 'false'
         run: bun publish --access restricted
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_CONFIG_REGISTRY: https://npm.pkg.github.com
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create git tag
         if: steps.tag_check.outputs.exists == 'false'
